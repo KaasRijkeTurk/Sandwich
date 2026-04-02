@@ -1,239 +1,1477 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;800;900&display=swap" rel="stylesheet"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestellen</title>
-    <link rel="stylesheet" href="../css/bestellen.css">
-</head>
-<script src="../javascript/shopingkart.js"></script>
-<body>
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="../about/bestellen.html">Bestellen</a>
-        <a href="../about/overons.html">Over ons</a>
-        <a href="../about/contact.html">Contact</a>
-        <a href="../about/reviews.html">Reviews</a>
-    </nav>
-    
-    <section id="sandwiches">
-        <div class="container">
-            <div class="sandwich">
-                <h2>De "100% kans op obesitas"</h2>
-                <img src="../images/obesitas.jpg" alt="Grote Sandwich"class="fixed-image">
-                <p>Niemand heeft deze sandwich overleeft. behalve jeltes moeder.</p>
-                <button class="buy-button" onclick="addToCart('100% kans op obesitas Sandwich', 29.99)">€29,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Bananenketchup Pasta Cracker Rijst & Bonen" Sandwich</h2>
-                <img src="../images/masterpiece.jpg"class="fixed-image">
-                <p>Meesterwerk</p>
-                <button class="buy-button" onclick="addToCart('Bananenketchup Pasta Cracker Rijst & Bonen Sandwich', 7.99)">€7,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Prototype 1: Pindakaas en Jam" Sandwich</h2>
-                <img src="../images/PPBenJ.jpg"class="fixed-image">
-                <p>Een PB&J in zijn rauwste vorm—druiven die weigeren geplet te worden en pinda's die nog in ontkenning leven. Een culinair misdrijf.</p>
-                <button class="buy-button" onclick="addToCart('Prototype 1: Pindakaas en Jam Sandwich', 1.49)">€1,49</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Pindakaas en Jam" Sandwich</h2>
-                <img src="../images/PBenJ.jpg"class="fixed-image">
-                <p>Meest normale sandwich van ze allemaal</p>
-                <button class="buy-button" onclick="addToCart('Pindakaas en Jam Sandwich', 2.99)">€2,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "MODERNE Pindakaas en Jam" Sandwich</h2>
-                <img src="../images/MPBenJ.jpg"class="fixed-image">
-                <p>Minimalistisch, steriel en volledig onethisch. Dit is geen sandwich, dit is een simulatie. Alsof een AI probeerde te begrijpen wat een PB&J is… en volledig faalde.</p>
-                <button class="buy-button" onclick="addToCart('MODERNE Pindakaas en Jam Sandwich', 5.99)">€5,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Pindakaas met Augurk" Sandwich</h2>
-                <img src="../images/PBPickle.jpg"class="fixed-image">
-                <p>Een creatie uit hell. Somige mensen eten dit gewoon🤮.</p>
-                <button class="buy-button" onclick="addToCart('Ik ben gezond Sandwich', 4.99)">€4,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Gezonde longen" Sandwich</h2>
-                <img src="../images/rook.jpg" alt="Salami Sandwich" class="fixed-image">
-                <p>Een perfecte sandwich voor rokers.</p>
-                <button class="buy-button" onclick="addToCart('Salami Sandwich', 15.99)">€15,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Tooth Cheese" Sandwich</h2>
-                <img src="../images/tandpasta.jpg"class="fixed-image">
-                <p>Gezond, Lekker en maakt je tanden schoon!</p>
-                <button class="buy-button" onclick="addToCart('Tooth Cheese Sandwich', 3.99)">€3,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Carrot Ginger Tea" Sandwich</h2>
-                <img src="../images/ginger.jpg"class="fixed-image">
-                <p>Deze sandwich geeft je ebola. Het bevat 100% kanker en heeft een lekkere gember achtige nasmaak. Je wel uitkijken want het bevat rode voetende peppers!</p>
-                <button class="buy-button" onclick="addToCart('Carrot Ginger Tea Sandwich', 3.99)">€3,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Moldy" Sandwich</h2>
-                <img src="../images/moldy.jpg"class="fixed-image">
-                <p>Niet Gezond, Niet Lekker en maakt niet je tanden schoon!</p>
-                <button class="buy-button" onclick="addToCart('Moldy Sandwich', 0.99)">€0,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Fresh out of the oven" Sandwich</h2>
-                <img src="../images/baby.jpg"class="fixed-image">
-                <p>Armel Karsten in klas l4v wilde dit op de menu. Facking gaar kind.</p>
-                <button class="buy-button" onclick="addToCart('Fresh out of the oven', 374,99)">€374,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Voeten met bloemen"</h2>
-                <img src="../images/voeten-met-bloemen.jpg"class="fixed-image">
-                <p>Jelte Gelijk in klas l4v wilde dit op de menu. Facking raar kind.</p>
-                <button class="buy-button" onclick="addToCart('Voeten met bloemen', 79,99)">€79,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Flying" Sandwich</h2>
-                <img src="../images/fly.jpg"class="fixed-image">
-                <p>Kijk uit het kan duivenkak bevatten!</p>
-                <button class="buy-button" onclick="addToCart('Flying Sandwich', 14.99)">€14,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Extra Kaas" Sandwich</h2>
-                <img src="../images/kaas.jpg"class="fixed-image">
-                <p>Dat is niet genoeg kaas.</p>
-                <button class="buy-button" onclick="addToCart('Extra Kaas Sandwich', 5.99)">€5,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Extra Brood" Sandwich</h2>
-                <img src="../images/brood.jpg"class="fixed-image">
-                <p>Dat is niet genoeg brood.</p>
-                <button class="buy-button" onclick="addToCart('Extra Brood Sandwich', 3.99)">€3,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Cheetos" Sandwich</h2>
-                <img src="../images/cheetos.jpg"class="fixed-image">
-                <p>Het is een lunch die je handen oranje maakt, maar je maag achterlaat met spijt. Het is een snack met extra crunch... en een beetje schaamte.</p>
-                <button class="buy-button" onclick="addToCart('Cheetos Sandwich', 4.49)">€4,49</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "FeetWich" Sandwich</h2>
-                <img src="../images/feetwich,jpg.jpg"class="fixed-image">
-                <p>Smeuige</p>
-                <button class="buy-button" onclick="addToCart('FeetWich Sandwich', 2.99)">€2,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "EGG Sandwich"</h2>
-                <img src="../images/egg.jpg" alt="Egg Sandwich" class="fixed-image">
-                <p>Een ei, gewoon een ei, tussen twee sneetjes brood. Verwacht geen magie, maar wel een stevige maaltijd.</p>
-                <button class="buy-button" onclick="addToCart('EGG Sandwich', 2.99)">€2,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Werkloosheid" Sandwich</h2>
-                <img src="../images/arm.jpg" alt="Sandwich 3"class="fixed-image">
-                <p>De titel zegt het al voor... Ons meest goedkoopste sandwich!</p>
-                <button class="buy-button" onclick="addToCart('Werkloosheid Sandwich', 0.01)">€0,01</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Gayernator" Sandwich</h2>
-                <img src="../images/gay.jpg" alt="Sandwich 3"class="fixed-image">
-                <p>Deze sandwich zorgt ervoor dat je uit de kast komt. 99% kans op gekleurd haar!</p>
-                <button class="buy-button" onclick="addToCart('Gayernator Sandwich', 6.99)">€6,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Ik ben gezond" Sandwich</h2>
-                <img src="../images/gezond.jpg"class="fixed-image">
-                <p>Een hele lekkere sandwich.</p>
-                <button class="buy-button" onclick="addToCart('Ik ben gezond Sandwich', 3.99)">€3,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Choco Musli" Sandwich</h2>
-                <img src="../images/cerial.jpg"class="fixed-image">
-                <p>Leuk voor de ontbijt, vreselijk voor de vloer.</p>
-                <button class="buy-button" onclick="addToCart('Ik hou van lebron', 4.69)">€4,69</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Floor" Sandwich</h2>
-                <img src="../images/Floor.jpg"class="fixed-image">
-                <p>We hebben deze laten vallen terwijl we het maakte.</p>
-                <button class="buy-button" onclick="addToCart('Floor', 3.99)">€3,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Volty" Sandwich</h2>
-                <img src="../images/Volty.jpg"class="fixed-image">
-                <p>Deze sandwich zal je laten schokken! (Wij zijn op geen enkele manier verantwoordelijk voor schokken, kortsluiting, ontploffingen, spontane combustie, magnetische bijwerkingen, radioactieve straling, tijdreizen, parallelle dimensies, telepathische connecties, onverwachte superkrachten, spontane mutaties, cybernetische integratie, plotselinge technologische verlichting, het hacken van de Matrix, communicatie met buitenaardse wezens, het opladen van apparaten met je blote handen, het ontwikkelen van een nieuwe taal, ongecontroleerde teleportatie, of enige andere chaos, anomalieën of realiteitsbreuken veroorzaakt door de Batterij Sandwich™.)</p>
-                <button class="buy-button" onclick="addToCart('Floor', 6.99)">€6,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Lebron's Sloppy Joe" Sandwich</h2>
-                <img src="../images/chum.jpg"class="fixed-image">
-                <p>uuuh... we hebben.. (wtf moet ik hier verzinnen) ... lebron heeft hier in gespugt.</p>
-                <button class="buy-button" onclick="addToCart('Lebron pp rider..', 99.99)">€99,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Germaanse" Sandwich</h2>
-                <img src="../images/Hitler.jpg"class="fixed-image">
-                <p>Als je je ogen bijna dicht doet zie je de liefde van de duiste volk!</p>
-                <button class="buy-button" onclick="addToCart('NEIN NEIN NEIN', 19.45)">€19,45</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Egg cone" Sandwich</h2>
-                <img src="../images/eggcream.jpg"class="fixed-image">
-                <p>Een ei tussen 2 ijskoontjes.</p>
-                <button class="buy-button" onclick="addToCart('Egg cone', 8.99)">€8,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Triwich"</h2>
-                <img src="../images/triwich.jpg"class="fixed-image">
-                <p>Sandwich³</p>
-                <button class="buy-button" onclick="addToCart('Sandwhich³', 2.99)">€2,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Quadwich"</h2>
-                <img src="../images/quadwich.jpg"class="fixed-image">
-                <p>Sandwich⁴</p>
-                <button class="buy-button" onclick="addToCart('Sandwhich⁴', 5,99)">€5,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Pentawich"</h2>
-                <img src="../images/pentawich.jpg"class="fixed-image">
-                <p>Sandwich⁵</p>
-                <button class="buy-button" onclick="addToCart('Sandwhich⁵', 11,99)">€11,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Lasagnich"</h2>
-                <img src="../images/Lasagne.jpg"class="fixed-image">
-                <p>Een lasagne met sandwich</p>
-                <button class="buy-button" onclick="addToCart('Lasagnich', 5,99)">€5,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "Caught in 4k"</h2>
-                <img src="../images/Jelte gay.png"class="fixed-image">
-                <p>Kijk naar deze gast die uit de kast komt.</p>
-                <button class="buy-button" onclick="addToCart('gay', 0,99)">€0,99</button>
-            </div>
-            <div class="sandwich">
-                <h2>De "I got racks of doug"</h2>
-                <img src="../images/Jelte gay.png"class="fixed-image">
-                <p>Voor kakkers.... dus jelte</p>
-                <button class="buy-button" onclick="addToCart('gay', 0,99)">€</button>
-            </div>
-            
-            
+    <title>Bestellen — Turkish Sandwich 2.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        :root {
+            --red:       #c0392b;
+            --red-deep:  #8b1a10;
+            --red-glow:  rgba(192, 57, 43, 0.35);
+            --gold:      #d4a855;
+            --ink:       #0e0b09;
+            --surface:   #161210;
+            --card:      #1e1813;
+            --card-hover:#251e17;
+            --border:    rgba(212, 168, 85, 0.18);
+            --border-sub:rgba(255,255,255,0.06);
+            --text:      #f0e6d8;
+            --muted:     #8a7a6a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--ink);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background-color: var(--ink);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mc-logo { display: flex; flex-direction: column; line-height: 1; }
+        .mc-logo-main { display: flex; align-items: center; gap: 0; }
+
+        .mc-bracket {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            font-family: 'Space Mono', monospace;
+            margin: 0 -0.5rem;
+            filter: drop-shadow(0 0 8px rgba(212, 168, 85, 0.4));
+        }
+
+        .mc-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 3.2rem;
+            overflow: visible;
+        }
+
+        .mc-big {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+            font-family: 'Syne', sans-serif;
+            margin: auto 0;
+        }
+
+        .mc-bottom {
+            font-family: 'Syne', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            color: #fff;
+            line-height: 0.1;
+            align-self: center;
+            margin-bottom: 0.1rem;
+        }
+
+        .mc-tagline {
+            font-size: 0.38rem;
+            letter-spacing: 0.25em;
+            color: #fff;
+            display: block;
+            font-weight: 500;
+            font-family: 'Syne', sans-serif;
+            margin-top: 0.4rem;
+            text-align: center;
+        }
+
+        .mc-tagline .accent { color: var(--gold); text-shadow: 0 0 8px rgba(212, 168, 85, 0.8); }
+
+        /* ── NAV ── */
+        nav {
+            background-color: rgba(14, 11, 9, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: var(--muted);
+            padding: 16px 18px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 18px; right: 18px;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+        }
+
+        nav a:hover { color: var(--text); }
+        nav a:hover::after, nav a.active::after { transform: scaleX(1); }
+        nav a.active { color: var(--gold); }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 64px 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 10% 50%, rgba(192,57,43,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-hero-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .page-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 9vw, 100px);
+            line-height: 0.9;
+            letter-spacing: 0.03em;
+            color: white;
+        }
+
+        .page-title em { font-style: normal; color: var(--red); }
+        .page-count { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 16px; color: var(--muted); padding-bottom: 8px; }
+
+        /* ── CONTROLS BAR ── */
+        .controls-bar {
+            max-width: 1400px;
+            margin: 0 auto 32px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* SEARCH */
+        .search-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-wrap input {
+            width: 100%;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px 16px 10px 40px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-wrap input:focus { border-color: var(--gold); }
+        .search-wrap input::placeholder { color: var(--muted); }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* SORT */
+        .sort-select {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .sort-select:focus { border-color: var(--gold); }
+
+        /* RANDOM */
+        .btn-random {
+            background: transparent;
+            border: 1px solid rgba(212,168,85,0.35);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-random:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+        /* ── CATEGORIES ── */
+        .categories-bar {
+            max-width: 1400px;
+            margin: 0 auto 32px;
+            padding: 0 40px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            background: var(--card);
+            border: 1px solid var(--border-sub);
+            color: var(--muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cat-btn:hover { border-color: var(--gold); color: var(--text); }
+
+        .cat-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        /* ── RESULT COUNT ── */
+        .result-count {
+            max-width: 1400px;
+            margin: 0 auto 16px;
+            padding: 0 40px;
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        /* ── GRID (MASONRY-LIKE) ── */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+            columns: 3;
+            column-gap: 24px;
+        }
+
+        /* ── CARD ── */
+        .sandwich {
+            background: var(--card);
+            border: 1px solid var(--border-sub);
+            border-radius: 12px;
+            overflow: hidden;
+            display: inline-flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 24px;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+            cursor: default;
+            break-inside: avoid;
+        }
+
+        .sandwich:hover {
+            border-color: rgba(212,168,85,0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            background: var(--card-hover);
+        }
+
+        .sandwich.hidden { display: none; }
+
+        .image-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: #130f0c;
+            position: relative;
+        }
+
+        /* Dynamische hoogte op basis van afbeelding oriëntatie */
+        .image-wrap.landscape { aspect-ratio: 4/3; }
+        .image-wrap.portrait  { aspect-ratio: 3/4; }
+        .image-wrap.square    { aspect-ratio: 1/1; }
+
+        .fixed-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .sandwich:hover .fixed-image { transform: scale(1.05); }
+
+        .price-badge {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: var(--red);
+            color: white;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 0.06em;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: rgba(14,11,9,0.85);
+            border: 1px solid var(--border);
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sandwich h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.05em;
+            color: white;
+            line-height: 1.15;
+        }
+
+        .sandwich p {
+            font-family: 'Crimson Pro', serif;
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            gap: 10px;
+        }
+
+        .card-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+        }
+
+        .buy-button {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid rgba(212,168,85,0.35);
+            padding: 9px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .buy-button:hover {
+            background: var(--red);
+            border-color: var(--red);
+            color: white;
+            box-shadow: 0 4px 16px var(--red-glow);
+        }
+
+        /* popularity bar */
+        .popularity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .popularity-label { font-size: 10px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+
+        .popularity-bar {
+            flex: 1;
+            height: 3px;
+            background: var(--border-sub);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .popularity-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width 1s ease;
+        }
+
+        /* ── EMPTY STATE ── */
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 80px 40px;
+            color: var(--muted);
+        }
+
+        .empty-state.show { display: block; }
+
+        .empty-state h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        /* ── CART ── */
+        .cart-fab {
+            position: fixed;
+            right: 28px; bottom: 28px;
+            background: var(--red);
+            color: white;
+            width: 58px; height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 24px var(--red-glow);
+            z-index: 1001;
+            transition: transform 0.2s, background 0.2s;
+            font-size: 22px;
+            border: none;
+        }
+
+        .cart-fab:hover { transform: scale(1.08); background: var(--red-deep); }
+
+        .cart-count {
+            position: absolute;
+            top: -4px; right: -4px;
+            background: var(--gold);
+            color: var(--ink);
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 20px; height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            right: 28px; bottom: 100px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            z-index: 1001;
+            min-width: 320px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .cart-modal h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 0.1em;
+            color: white;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-sub);
+            font-size: 14px;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0 4px;
+            transition: color 0.2s;
+        }
+
+        .cart-item-remove:hover { color: var(--red); }
+
+        .cart-total { font-weight: 500; margin-top: 14px; text-align: right; color: var(--gold); font-size: 15px; }
+
+        .cart-checkout-btn {
+            margin-top: 16px;
+            width: 100%;
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .cart-checkout-btn:hover { background: var(--red-deep); box-shadow: 0 4px 16px var(--red-glow); }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--card);
+            border: 1px solid var(--gold);
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 13px;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer .footer-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+            margin-bottom: 6px;
+        }
+
+        footer p { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) { .container { columns: 2; } }
+
+        @media (max-width: 768px) {
+            header { padding: 16px 20px; }
+            nav { padding: 0 16px; }
+            nav a { padding: 14px 10px; font-size: 11px; }
+            .page-hero { padding: 40px 20px 28px; }
+            .container { columns: 1; padding: 0 20px 60px; }
+            .controls-bar, .categories-bar, .result-count { padding: 0 20px; }
+            .cart-modal { right: 16px; min-width: calc(100vw - 32px); }
+        }
+    </style>
+</head>
+
+<script src="../javascript/shopingkart.js"></script>
+
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+    <span class="mc-logo">
+        <span class="mc-logo-main">
+            <span class="mc-bracket">[</span>
+            <span class="mc-block">
+                <span class="mc-big">M</span>
+                <span class="mc-bottom">can</span>
+            </span>
+            <span class="mc-bracket">]</span>
+        </span>
+        <span class="mc-tagline">COOK<span class="accent">.</span> BAKE<span class="accent">.</span> BREAK<span class="accent">.</span></span>
+    </span>
+    <div style="text-align:right;">
+        <a href="../index.html" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(24px,4vw,48px); letter-spacing:0.08em; color:#fff; line-height:1; text-decoration:none;">Turkish <span style="color:var(--gold);">Sandwich</span></a>
+        <div style="font-family:'Crimson Pro',serif; font-style:italic; font-size:12px; color:var(--muted); letter-spacing:0.12em; margin-top:4px;">2.0 — Est. 2024 — Arnhem</div>
+    </div>
+</header>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="../index.html">Home</a>
+    <a href="../about/bestellen.html" class="active">Bestellen</a>
+    <a href="../about/overons.html">Over ons</a>
+    <a href="../about/contact.html">Contact</a>
+    <a href="../about/reviews.html">Reviews</a>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+    <div class="page-hero-inner">
+        <div>
+            <h1 class="page-title">De <em>Menu</em></h1>
         </div>
+        <p class="page-count">33 unieke creaties — durf jij ze allemaal?</p>
+    </div>
+</div>
+
+<!-- ── CONTROLS ── -->
+<div class="controls-bar">
+    <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Zoek een sandwich..." oninput="filterAndSort()">
+    </div>
+    <select class="sort-select" id="sort-select" onchange="filterAndSort()">
+        <option value="default">Sorteren: Standaard</option>
+        <option value="popular">Meest Populair</option>
+        <option value="price-asc">Prijs: Laag → Hoog</option>
+        <option value="price-desc">Prijs: Hoog → Laag</option>
+        <option value="name-asc">Naam: A → Z</option>
+        <option value="danger">Gevaarlijkheid 💀</option>
+    </select>
+    <button class="btn-random" onclick="randomSandwich()">🎲 Verras me</button>
+</div>
+
+<!-- ── CATEGORIES ── -->
+<div class="categories-bar">
+    <button class="cat-btn active" onclick="setCategory('all', this)">🥪 Alles</button>
+    <button class="cat-btn" onclick="setCategory('klassiek', this)">🍞 Klassiek</button>
+    <button class="cat-btn" onclick="setCategory('demonisch', this)">💀 Demonisch</button>
+    <button class="cat-btn" onclick="setCategory('gezond', this)">🥗 Gezond*</button>
+    <button class="cat-btn" onclick="setCategory('lagen', this)">📚 Lagen</button>
+    <button class="cat-btn" onclick="setCategory('speciaal', this)">⭐ Speciaal</button>
+    <button class="cat-btn" onclick="setCategory('creatief', this)">🎨 Creatief</button>
+</div>
+
+<div class="result-count" id="result-count">33 sandwiches gevonden</div>
+
+<!-- ── GRID ── -->
+<section id="sandwiches">
+    <div class="container" id="sandwich-grid">
+
+        <div class="sandwich" data-category="demonisch" data-price="29.99" data-popularity="95" data-danger="100" data-name="100% kans op obesitas">
+            <div class="image-wrap landscape">
+                <img src="../images/obesitas.jpg" alt="100% kans op obesitas" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€29,99</span>
+                <span class="category-badge">💀 Demonisch</span>
+            </div>
+            <div class="card-body">
+                <h2>De "100% kans op obesitas"</h2>
+                <p>Niemand heeft deze sandwich overleefd. behalve jeltes moeder.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:95%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€29,99</span>
+                    <button class="buy-button" onclick="addToCartToast('100% kans op obesitas Sandwich', 29.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="7.99" data-popularity="70" data-danger="30" data-name="Bananenketchup Pasta Cracker Rijst Bonen">
+            <div class="image-wrap landscape">
+                <img src="../images/masterpiece.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€7,99</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Bananenketchup Pasta Cracker Rijst &amp; Bonen" Sandwich</h2>
+                <p>Meesterwerk</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:70%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€7,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Bananenketchup Pasta Cracker Rijst & Bonen Sandwich', 7.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="klassiek" data-price="1.49" data-popularity="55" data-danger="10" data-name="Pinda en Druif Prototype">
+            <div class="image-wrap landscape">
+                <img src="../images/PPBenJ.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€1,49</span>
+                <span class="category-badge">🍞 Klassiek</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Pinda en Druif" Sandwich</h2>
+                <p>Een PB&amp;J in zijn rauwste vorm. Een culinair misdrijf.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:55%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€1,49</span>
+                    <button class="buy-button" onclick="addToCartToast('Prototype 1: Pindakaas en Jam Sandwich', 1.49)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="klassiek" data-price="2.99" data-popularity="80" data-danger="5" data-name="Pindakaas en Jam">
+            <div class="image-wrap landscape">
+                <img src="../images/PBenJ.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€2,99</span>
+                <span class="category-badge">🍞 Klassiek</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Pindakaas en Jam" Sandwich</h2>
+                <p>Meest normale sandwich van ze allemaal</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:80%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€2,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Pindakaas en Jam Sandwich', 2.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="5.99" data-popularity="65" data-danger="50" data-name="MODERNE Pindakaas en Jam">
+            <div class="image-wrap landscape">
+                <img src="../images/MPBenJ.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€5,99</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "MODERNE Pindakaas en Jam" Sandwich</h2>
+                <p>Minimalistisch, steriel en volledig onethisch. De productie van deze sandwich heeft de CO2 uitstoot met 67% laten stijgen.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:65%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€5,99</span>
+                    <button class="buy-button" onclick="addToCartToast('MODERNE Pindakaas en Jam Sandwich', 5.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="klassiek" data-price="4.99" data-popularity="45" data-danger="20" data-name="Pindakaas met Augurk">
+            <div class="image-wrap landscape">
+                <img src="../images/PBPickle.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€4,99</span>
+                <span class="category-badge">🍞 Klassiek</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Pindakaas met Augurk" Sandwich</h2>
+                <p>Een creatie uit hell. Somige mensen eten dit gewoon🤮.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:45%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€4,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Pindakaas met Augurk Sandwich', 4.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="gezond" data-price="15.99" data-popularity="60" data-danger="75" data-name="Gezonde longen">
+            <div class="image-wrap landscape">
+                <img src="../images/rook.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€15,99</span>
+                <span class="category-badge">🥗 Gezond*</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Gezonde longen" Sandwich</h2>
+                <p>Een perfecte sandwich voor rokers.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:60%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€15,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Gezonde longen Sandwich', 15.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="3.99" data-popularity="50" data-danger="15" data-name="Carrot Ginger Tea">
+            <div class="image-wrap landscape">
+                <img src="../images/ginger.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€3,99</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Carrot Ginger Tea" Sandwich</h2>
+                <p>PAS OP: Gemaakt door onze gembere chef.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:50%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€3,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Carrot Ginger Tea Sandwich', 3.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="gezond" data-price="3.99" data-popularity="72" data-danger="5" data-name="Tooth Cheese">
+            <div class="image-wrap landscape">
+                <img src="../images/tandpasta.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€3,99</span>
+                <span class="category-badge">🥗 Gezond*</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Tooth Cheese" Sandwich</h2>
+                <p>Gezond, Lekker en maakt je tanden schoon!</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:72%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€3,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Tooth Cheese Sandwich', 3.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="demonisch" data-price="0.99" data-popularity="88" data-danger="90" data-name="Moldy">
+            <div class="image-wrap landscape">
+                <img src="../images/moldy.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€0,99</span>
+                <span class="category-badge">💀 Demonisch</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Moldy" Sandwich</h2>
+                <p>Niet Gezond, Niet Lekker en maakt niet je tanden schoon!</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:88%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€0,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Moldy Sandwich', 0.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="demonisch" data-price="374.99" data-popularity="99" data-danger="100" data-name="Fresh out of the oven">
+            <div class="image-wrap portrait">
+                <img src="../images/baby.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€374,99</span>
+                <span class="category-badge">💀 Demonisch</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Fresh out of the oven" Sandwich</h2>
+                <p>Armel Karsten in klas l4v wilde dit op de menu. Dank hem maar voor de talloze kidnappingen.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:99%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€374,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Fresh out of the oven', 374.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="14.99" data-popularity="55" data-danger="40" data-name="Flying">
+            <div class="image-wrap landscape">
+                <img src="../images/fly.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€14,99</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Flying" Sandwich</h2>
+                <p>Kijk uit het kan duivenkak bevatten!</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:55%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€14,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Flying Sandwich', 14.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="klassiek" data-price="5.99" data-popularity="68" data-danger="5" data-name="Extra Kaas">
+            <div class="image-wrap landscape">
+                <img src="../images/kaas.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€5,99</span>
+                <span class="category-badge">🍞 Klassiek</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Extra Kaas" Sandwich</h2>
+                <p>Dat is niet genoeg kaas.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:68%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€5,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Extra Kaas Sandwich', 5.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="klassiek" data-price="3.99" data-popularity="60" data-danger="5" data-name="Extra Brood">
+            <div class="image-wrap landscape">
+                <img src="../images/brood.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€3,99</span>
+                <span class="category-badge">🍞 Klassiek</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Extra Brood" Sandwich</h2>
+                <p>Dat is niet genoeg brood.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:60%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€3,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Extra Brood Sandwich', 3.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="2.99" data-popularity="75" data-danger="30" data-name="FeetWich">
+            <div class="image-wrap landscape">
+                <img src="../images/feetwich,jpg.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€2,99</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "FeetWich" Sandwich</h2>
+                <p>Dat is niet genoeg voet.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:75%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€2,99</span>
+                    <button class="buy-button" onclick="addToCartToast('FeetWich Sandwich', 2.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="klassiek" data-price="2.99" data-popularity="78" data-danger="5" data-name="EGG">
+            <div class="image-wrap landscape">
+                <img src="../images/egg.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€2,99</span>
+                <span class="category-badge">🍞 Klassiek</span>
+            </div>
+            <div class="card-body">
+                <h2>De "EGG" Sandwich</h2>
+                <p>Een ei, gewoon een ei, tussen twee sneetjes brood.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:78%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€2,99</span>
+                    <button class="buy-button" onclick="addToCartToast('EGG Sandwich', 2.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="demonisch" data-price="0.01" data-popularity="40" data-danger="60" data-name="Werkloosheid">
+            <div class="image-wrap portrait">
+                <img src="../images/arm.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€0,01</span>
+                <span class="category-badge">💀 Demonisch</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Werkloosheid" Sandwich</h2>
+                <p>De titel zegt het al voor... Ons meest goedkoopste sandwich!</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:40%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€0,01</span>
+                    <button class="buy-button" onclick="addToCartToast('Werkloosheid Sandwich', 0.01)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="speciaal" data-price="6.99" data-popularity="85" data-danger="20" data-name="Gayernator">
+            <div class="image-wrap landscape">
+                <img src="../images/gay.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€6,99</span>
+                <span class="category-badge">⭐ Speciaal</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Gayernator" Sandwich</h2>
+                <p>Deze sandwich zorgt ervoor dat je uit de kast komt.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:85%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€6,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Gayernator Sandwich', 6.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="gezond" data-price="3.99" data-popularity="62" data-danger="5" data-name="Ik ben gezond">
+            <div class="image-wrap landscape">
+                <img src="../images/gezond.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€3,99</span>
+                <span class="category-badge">🥗 Gezond*</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Ik ben gezond" Sandwich</h2>
+                <p>Een hele lekkere sandwich.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:62%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€3,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Ik ben gezond Sandwich', 3.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="4.69" data-popularity="58" data-danger="10" data-name="Choco Musli">
+            <div class="image-wrap landscape">
+                <img src="../images/cerial.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€4,69</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Choco Musli" Sandwich</h2>
+                <p>Leuk voor de ontbijt, vreselijk voor de vloer.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:58%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€4,69</span>
+                    <button class="buy-button" onclick="addToCartToast('Choco Musli Sandwich', 4.69)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="demonisch" data-price="3.99" data-popularity="77" data-danger="35" data-name="Floor">
+            <div class="image-wrap landscape">
+                <img src="../images/Floor.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€3,99</span>
+                <span class="category-badge">💀 Demonisch</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Floor" Sandwich</h2>
+                <p>We hebben deze laten vallen terwijl we het maakte.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:77%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€3,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Floor Sandwich', 3.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="speciaal" data-price="6.99" data-popularity="82" data-danger="80" data-name="Volty">
+            <div class="image-wrap landscape">
+                <img src="../images/Volty.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€6,99</span>
+                <span class="category-badge">⭐ Speciaal</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Volty" Sandwich</h2>
+                <p>Deze sandwich zal je laten schokken! (Wij zijn op geen enkele manier verantwoordelijk voor schokken, kortsluiting of ontploffingen)</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:82%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€6,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Volty Sandwich', 6.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="speciaal" data-price="99.99" data-popularity="90" data-danger="50" data-name="Lebrons Special">
+            <div class="image-wrap landscape">
+                <img src="../images/chum.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€99,99</span>
+                <span class="category-badge">⭐ Speciaal</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Lebron's Special" Sandwich</h2>
+                <p>LeBron heeft hier in gespuugd.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:90%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€99,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Lebron Sloppy Joe Sandwich', 99.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="speciaal" data-price="19.45" data-popularity="73" data-danger="65" data-name="Germaanse">
+            <div class="image-wrap portrait">
+                <img src="../images/Hitler.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€19,45</span>
+                <span class="category-badge">⭐ Speciaal</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Germaanse" Sandwich</h2>
+                <p>Als je je ogen bijna dicht doet zie je de liefde van het duitse volk!</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:73%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€19,45</span>
+                    <button class="buy-button" onclick="addToCartToast('Germaanse Sandwich', 19.45)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="creatief" data-price="8.99" data-popularity="66" data-danger="15" data-name="Egg cone">
+            <div class="image-wrap landscape">
+                <img src="../images/eggcream.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€8,99</span>
+                <span class="category-badge">🎨 Creatief</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Egg cone" Sandwich</h2>
+                <p>Een ei tussen 2 ijskoontjes.</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:66%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€8,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Egg Cone Sandwich', 8.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="lagen" data-price="2.99" data-popularity="70" data-danger="20" data-name="Triwich">
+            <div class="image-wrap landscape">
+                <img src="../images/triwich.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€2,99</span>
+                <span class="category-badge">📚 Lagen</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Triwich"</h2>
+                <p>Sandwich³</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:70%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€2,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Triwich Sandwich', 2.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="lagen" data-price="5.99" data-popularity="75" data-danger="25" data-name="Quadwich">
+            <div class="image-wrap landscape">
+                <img src="../images/quadwich.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€5,99</span>
+                <span class="category-badge">📚 Lagen</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Quadwich"</h2>
+                <p>Sandwich⁴</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:75%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€5,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Quadwich Sandwich', 5.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="lagen" data-price="11.99" data-popularity="80" data-danger="30" data-name="Pentawich">
+            <div class="image-wrap landscape">
+                <img src="../images/pentawich.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€11,99</span>
+                <span class="category-badge">📚 Lagen</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Pentawich"</h2>
+                <p>Sandwich⁵</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:80%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€11,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Pentawich Sandwich', 11.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="lagen" data-price="5.99" data-popularity="65" data-danger="20" data-name="Lasagnich">
+            <div class="image-wrap landscape">
+                <img src="../images/Lasagne.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€5,99</span>
+                <span class="category-badge">📚 Lagen</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Lasagnich"</h2>
+                <p>Een lasagne met sandwich</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:65%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€5,99</span>
+                    <button class="buy-button" onclick="addToCartToast('Lasagnich Sandwich', 5.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="speciaal" data-price="0.99" data-popularity="91" data-danger="10" data-name="ChillWich">
+            <div class="image-wrap landscape">
+                <img src="../images/frog.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€?</span>
+                <span class="category-badge">⭐ Speciaal</span>
+            </div>
+            <div class="card-body">
+                <h2>De "ChillWich"</h2>
+                <p>1 april kikker in je sandwich</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:91%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€?</span>
+                    <button class="buy-button" onclick="addToCartToast('Chill Sandwich', 0.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sandwich" data-category="demonisch" data-price="0.99" data-popularity="86" data-danger="95" data-name="Me gusta la cocaina">
+            <div class="image-wrap landscape">
+                <img src="../images/coca.jpg" class="fixed-image" onload="detectOrientation(this)">
+                <span class="price-badge">€?</span>
+                <span class="category-badge">💀 Demonisch</span>
+            </div>
+            <div class="card-body">
+                <h2>De "Me gusta la cocaína" Sandwich</h2>
+                <p>ELLLL BORI LA MEHICO</p>
+                <div class="popularity">
+                    <span class="popularity-label">Populair</span>
+                    <div class="popularity-bar"><div class="popularity-fill" style="width:86%"></div></div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">€?</span>
+                    <button class="buy-button" onclick="addToCartToast('Cocaína Sandwich', 0.99)">In winkelwagen</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="empty-state" id="empty-state">
+        <h3>🥪 Geen sandwiches gevonden</h3>
+        <p>Probeer een andere zoekterm of categorie</p>
+    </div>
 </section>
 
-<div class="cart-icon" onclick="toggleCart()">
+<!-- ── CART ── -->
+<button class="cart-fab" onclick="toggleCart()" aria-label="Winkelwagen openen">
     🛒
     <span class="cart-count">0</span>
-</div>
+</button>
 
 <div class="cart-modal">
     <h3>Winkelwagen</h3>
     <div id="cart-items"></div>
     <div class="cart-total">Totaal: €<span id="cart-total">0.00</span></div>
-    <button class="buy-button" onclick="checkout()">Afrekenen</button>
+    <button class="cart-checkout-btn" onclick="checkout()">Afrekenen</button>
 </div>
-    
-</body>
 
+<div class="toast" id="toast"></div>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-brand">Turkish Sandwich 2.0</div>
+    <p>© 2024 KaasRijkeTurk · Arnhem · Alle rechten voorbehouden</p>
+    <p style="margin-top:8px; font-size:10px;">* Gezond is een relatief begrip</p>
+</footer>
+
+<script>
+    let activeCategory = 'all';
+
+    // Detect image orientation and set class
+    function detectOrientation(img) {
+        img.addEventListener('load', function() {
+            const wrap = this.closest('.image-wrap');
+            if (!wrap) return;
+            const ratio = this.naturalWidth / this.naturalHeight;
+            wrap.classList.remove('landscape', 'portrait', 'square');
+            if (ratio > 1.2) wrap.classList.add('landscape');
+            else if (ratio < 0.8) wrap.classList.add('portrait');
+            else wrap.classList.add('square');
+        });
+        if (img.complete && img.naturalWidth > 0) {
+            const wrap = img.closest('.image-wrap');
+            if (!wrap) return;
+            const ratio = img.naturalWidth / img.naturalHeight;
+            wrap.classList.remove('landscape', 'portrait', 'square');
+            if (ratio > 1.2) wrap.classList.add('landscape');
+            else if (ratio < 0.8) wrap.classList.add('portrait');
+            else wrap.classList.add('square');
+        }
+    }
+
+    function setCategory(cat, btn) {
+        activeCategory = cat;
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterAndSort();
+    }
+
+    function filterAndSort() {
+        const search = document.getElementById('search-input').value.toLowerCase();
+        const sort = document.getElementById('sort-select').value;
+        const grid = document.getElementById('sandwich-grid');
+        const cards = Array.from(grid.querySelectorAll('.sandwich'));
+
+        let visible = [];
+
+        cards.forEach(card => {
+            const cat = card.dataset.category;
+            const name = card.dataset.name.toLowerCase();
+            const text = card.querySelector('p').textContent.toLowerCase();
+
+            const catMatch = activeCategory === 'all' || cat === activeCategory;
+            const searchMatch = !search || name.includes(search) || text.includes(search);
+
+            if (catMatch && searchMatch) {
+                card.classList.remove('hidden');
+                visible.push(card);
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Sort
+        visible.sort((a, b) => {
+            if (sort === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+            if (sort === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+            if (sort === 'popular') return parseInt(b.dataset.popularity) - parseInt(a.dataset.popularity);
+            if (sort === 'name-asc') return a.dataset.name.localeCompare(b.dataset.name);
+            if (sort === 'danger') return parseInt(b.dataset.danger) - parseInt(a.dataset.danger);
+            return 0;
+        });
+
+        visible.forEach(card => grid.appendChild(card));
+
+        // Update count
+        document.getElementById('result-count').textContent = `${visible.length} sandwich${visible.length !== 1 ? 'es' : ''} gevonden`;
+
+        // Empty state
+        const empty = document.getElementById('empty-state');
+        empty.classList.toggle('show', visible.length === 0);
+    }
+
+    function randomSandwich() {
+        const cards = Array.from(document.querySelectorAll('.sandwich:not(.hidden)'));
+        if (!cards.length) return;
+        const random = cards[Math.floor(Math.random() * cards.length)];
+        random.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        random.style.transition = 'box-shadow 0.3s';
+        random.style.boxShadow = '0 0 0 3px var(--gold)';
+        setTimeout(() => { random.style.boxShadow = ''; }, 2000);
+        showToast('🎲 ' + random.querySelector('h2').textContent);
+    }
+
+    // Toast
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function addToCartToast(name, price) {
+        if (typeof addToCart === 'function') addToCart(name, price);
+        showToast('✅ ' + name + ' toegevoegd!');
+    }
+</script>
+
+</body>
 </html>

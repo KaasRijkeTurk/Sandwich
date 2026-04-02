@@ -1,48 +1,888 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;800;900&display=swap" rel="stylesheet"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandwich</title>
-    <link rel="stylesheet" href="../Sandwich/css/style.css">
+    <title>Turkish Sandwich 2.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --red:       #c0392b;
+            --red-deep:  #8b1a10;
+            --red-glow:  rgba(192, 57, 43, 0.35);
+            --gold:      #d4a855;
+            --ink:       #0e0b09;
+            --surface:   #161210;
+            --card:      #1e1813;
+            --border:    rgba(212, 168, 85, 0.18);
+            --text:      #f0e6d8;
+            --muted:     #8a7a6a;
+            --white:     #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--ink);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background-color: var(--ink);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ── LOGO ── */
+        .mc-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .mc-logo-main {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .mc-bracket {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            font-family: 'Space Mono', monospace;
+            margin: 0 -0.5rem;
+            filter: drop-shadow(0 0 8px rgba(212, 168, 85, 0.4));
+        }
+
+        .mc-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 3.2rem;
+            overflow: visible;
+        }
+
+        .mc-big {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+            font-family: 'Syne', sans-serif;
+            margin: auto 0;
+        }
+
+        .mc-bottom {
+            font-family: 'Syne', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            color: #fff;
+            line-height: 0.1;
+            align-self: center;
+            margin-bottom: 0.1rem;
+        }
+
+        .mc-tagline {
+            font-size: 0.38rem;
+            letter-spacing: 0.25em;
+            color: #fff;
+            display: block;
+            font-weight: 500;
+            font-family: 'Syne', sans-serif;
+            margin-top: 0.4rem;
+            text-align: center;
+        }
+
+        .mc-tagline .accent {
+            color: var(--gold);
+            text-shadow: 0 0 8px rgba(212, 168, 85, 0.8);
+        }
+
+        /* ── NAV ── */
+        nav {
+            background-color: rgba(14, 11, 9, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: var(--muted);
+            padding: 16px 18px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 18px; right: 18px;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+        }
+
+        nav a:hover { color: var(--text); }
+        nav a:hover::after, nav a.active::after { transform: scaleX(1); }
+        nav a.active { color: var(--gold); }
+
+        /* ── TICKER ── */
+        .ticker {
+            background: var(--gold);
+            color: var(--ink);
+            padding: 6px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .ticker-inner {
+            display: inline-block;
+            animation: ticker 25s linear infinite;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(100vw); }
+            to   { transform: translateX(-100%); }
+        }
+
+        /* ── HERO ── */
+        #intro {
+            position: relative;
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 80px 40px;
+        }
+
+        #intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 40%, rgba(192,57,43,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 50% at 80% 80%, rgba(212,168,85,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(212,168,85,0.3);
+            padding: 6px 16px;
+            border-radius: 2px;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.2s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(56px, 12vw, 130px);
+            line-height: 0.92;
+            letter-spacing: 0.02em;
+            color: var(--white);
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.35s forwards;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--red);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(17px, 2.5vw, 22px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 28px auto 40px;
+            line-height: 1.65;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.5s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.65s forwards;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            padding: 15px 36px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 2px solid var(--red);
+            transition: background 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--red-deep);
+            box-shadow: 0 0 28px var(--red-glow);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--gold);
+            padding: 15px 36px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 2px solid rgba(212,168,85,0.4);
+            transition: border-color 0.25s, color 0.25s;
+        }
+
+        .btn-outline:hover { border-color: var(--gold); color: var(--white); }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 1s forwards;
+        }
+
+        .scroll-hint span {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--muted), transparent);
+            animation: scrollPulse 1.8s ease infinite;
+        }
+
+        /* ── SANDWICH OF THE DAY ── */
+        .sotd {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .sotd-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+        }
+
+        .sotd-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(28px, 5vw, 52px);
+            color: var(--white);
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .sotd-content p {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .sotd-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-top: 12px;
+        }
+
+        /* ── SECTION DIVIDER ── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 0 40px;
+            margin: 48px 0;
+        }
+
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* ── FEATURES STRIP ── */
+        .features-strip {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background-color: var(--border);
+        }
+
+        .feature-item {
+            background: var(--surface);
+            padding: 36px 40px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover { background: var(--card); }
+
+        .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+
+        .feature-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .feature-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-item {
+            padding: 32px 40px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial-section {
+            padding: 64px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 6vw, 64px);
+            color: var(--white);
+            letter-spacing: 0.05em;
+            margin-bottom: 40px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: left;
+            transition: border-color 0.2s;
+        }
+
+        .testimonial-card:hover { border-color: rgba(212,168,85,0.4); }
+
+        .testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 10px; }
+
+        .testimonial-text {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .testimonial-author {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ── CART ── */
+        .cart-fab {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            background: var(--red);
+            color: var(--white);
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 24px var(--red-glow);
+            z-index: 1001;
+            transition: transform 0.2s, background 0.2s;
+            font-size: 22px;
+            border: none;
+        }
+
+        .cart-fab:hover { transform: scale(1.08); background: var(--red-deep); }
+
+        .cart-count {
+            position: absolute;
+            top: -4px; right: -4px;
+            background: var(--gold);
+            color: var(--ink);
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 20px; height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            right: 28px;
+            bottom: 100px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            z-index: 1001;
+            min-width: 320px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+
+        .cart-modal h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 14px;
+        }
+
+        .cart-total {
+            font-weight: 500;
+            margin-top: 14px;
+            text-align: right;
+            color: var(--gold);
+            font-size: 15px;
+        }
+
+        .cart-modal .btn-primary {
+            width: 100%;
+            text-align: center;
+            margin-top: 16px;
+            display: block;
+        }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--card);
+            border: 1px solid var(--gold);
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 13px;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer .footer-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+        }
+
+        footer p { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.4; }
+            50%       { opacity: 1; }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            header { padding: 16px 20px; }
+            nav { padding: 0 16px; }
+            nav a { padding: 14px 12px; font-size: 11px; }
+            #intro { padding: 60px 24px 80px; min-height: 70vh; }
+            .features-strip { grid-template-columns: 1fr; }
+            .feature-item { padding: 28px 24px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .testimonials { grid-template-columns: 1fr; }
+            .sotd { flex-direction: column; gap: 20px; }
+            .sotd-label { writing-mode: horizontal-tb; transform: none; }
+        }
     </style>
 </head>
-<script src="../Sandwich/javascript/shopingkart.js"></script>
+
+<script src="../javascript/shopingkart.js"></script>
+
 <body>
 
+<!-- ── HEADER ── -->
 <header>
-    <img src="../Sandwich/images/logo.jpg" alt="Mijn Logo" class="logo">
-
+    <span class="mc-logo">
+        <span class="mc-logo-main">
+            <span class="mc-bracket">[</span>
+            <span class="mc-block">
+                <span class="mc-big">M</span>
+                <span class="mc-bottom">can</span>
+            </span>
+            <span class="mc-bracket">]</span>
+        </span>
+        <span class="mc-tagline">COOK<span class="accent">.</span> BAKE<span class="accent">.</span> BREAK<span class="accent">.</span></span>
+    </span>
+    <div style="text-align:right;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(24px,4vw,48px); letter-spacing:0.08em; color:#fff; line-height:1;">Turkish <span style="color:var(--gold);">Sandwich</span></div>
+        <div style="font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; color:var(--muted); letter-spacing:0.12em; margin-top:4px;">2.0 — Est. 2024 — Arnhem</div>
+    </div>
 </header>
 
+<!-- ── TICKER ── -->
+<div class="ticker">
+    <span class="ticker-inner">
+        🥪 NIEMAND HEEFT DE 100% OBESITAS SANDWICH OVERLEEFD &nbsp;&nbsp;★&nbsp;&nbsp; HALAL CERTIFIED (voor de meeste sandwiches) &nbsp;&nbsp;★&nbsp;&nbsp; VERSE INGREDIËNTEN* (*definitie van vers is flexibel) &nbsp;&nbsp;★&nbsp;&nbsp; CEO KAN ZIJN EIGEN NAAM NIET UITSPREKEN &nbsp;&nbsp;★&nbsp;&nbsp; 🥪 NIEMAND HEEFT DE 100% OBESITAS SANDWICH OVERLEEFD &nbsp;&nbsp;★&nbsp;&nbsp;
+    </span>
+</div>
+
+<!-- ── NAV ── -->
 <nav>
-    <a href="../Sandwich/index.html">Home</a>
-    <a href="../Sandwich/about/bestellen.html">Bestellen</a>
-    <a href="../Sandwich/about/overons.html">Over ons</a>
-    <a href="../Sandwich/about/contact.html">Contact</a>
-    <a href="../Sandwich/about/reviews.html">Reviews</a>
+    <a href="../index.html" class="active">Home</a>
+    <a href="../about/bestellen.html">Bestellen</a>
+    <a href="../about/overons.html">Over ons</a>
+    <a href="../about/contact.html">Contact</a>
+    <a href="../about/reviews.html">Reviews</a>
 </nav>
+
+<!-- ── HERO ── -->
 <section id="intro">
-    <div class="intro-container">
-        <h1>Welkom bij de Turkish Sandwich Shop!</h1>
-        <p>Ontdek de meest unieke en walgelijke sandwiches die je ooit hebt geproefd. Van klassiekers tot demonische creaties, we hebben voor ieder een ding! Kies jouw favoriet en bestel snel online.</p>
-        <button class="cta-button"><a href="../Sandwich/about/bestellen.html">Bestel nu!</a></button>
-        <p>Bezoek onze <a href="https://www.youtube.com/@KaasRijkeTurk/community">Posts</a> om reviews te sturen en suggesties voor nieuwe sandwiches aan te raden!</p>
+    <div class="hero-inner">
+        <span class="hero-eyebrow">Turkish Sandwich 2.0 — Nieuw &amp; Verbeterd</span>
+        <h1 class="hero-title">
+            Welkom bij de
+            <em>Turkish Sandwich Shop</em>
+        </h1>
+        <p class="hero-subtitle">
+            Ontdek de meest unieke en walgelijke sandwiches die je ooit hebt geproefd.
+            Van klassiekers tot demonische creaties — we hebben voor ieder een ding.
+        </p>
+        <div class="hero-actions">
+            <a href="../about/bestellen.html" class="btn-primary">Bestel nu</a>
+            <a href="https://www.youtube.com/@KaasRijkeTurk/community" target="_blank" class="btn-outline">Stuur een review</a>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
     </div>
 </section>
 
-<!-- winkelwagen -->
-<div class="cart-icon" onclick="toggleCart()">
+<!-- ── STATS ── -->
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-number" id="counter-sandwiches">0</div>
+        <div class="stat-label">Unieke Sandwiches</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number" id="counter-survivors">0</div>
+        <div class="stat-label">Overlevenden (obesitas)</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number" id="counter-countries">0</div>
+        <div class="stat-label">Landen Verbaasd</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number" id="counter-stars">0</div>
+        <div class="stat-label">⭐ Gemiddeld</div>
+    </div>
+</div>
+
+<!-- ── SANDWICH OF THE DAY ── -->
+<div class="sotd">
+    <div class="sotd-label">Sandwich van de dag</div>
+    <div class="sotd-content">
+        <h2 id="sotd-name">De "Moldy" Sandwich</h2>
+        <p id="sotd-desc">Niet Gezond, Niet Lekker en maakt niet je tanden schoon!</p>
+        <div class="sotd-price" id="sotd-price">€0,99</div>
+        <a href="../about/bestellen.html" class="btn-primary" style="display:inline-block; margin-top:16px;">Bestel nu</a>
+    </div>
+</div>
+
+<!-- ── FEATURES ── -->
+<div class="section-divider">
+    <span class="section-label">Waarom Turkish Sandwich 2.0?</span>
+</div>
+
+<div class="features-strip">
+    <div class="feature-item">
+        <span class="feature-icon">🔥</span>
+        <div class="feature-title">Unieke Smaken</div>
+        <p class="feature-text">Van mild tot vuur — elke sandwich is een ervaring die je niet vergeet.</p>
+    </div>
+    <div class="feature-item">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-title">Snel Bestellen</div>
+        <p class="feature-text">Bestel online in seconden. Direct klaar, geen gedoe.</p>
+    </div>
+    <div class="feature-item">
+        <span class="feature-icon">🌿</span>
+        <div class="feature-title">Verse Ingrediënten</div>
+        <p class="feature-text">Altijd vers*, altijd lekker*. Kwaliteit staat bij ons centraal*.</p>
+    </div>
+</div>
+
+<!-- ── TESTIMONIALS ── -->
+<div class="section-divider">
+    <span class="section-label">Wat zeggen onze klanten?</span>
+</div>
+
+<div class="testimonial-section">
+    <div class="testimonials">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Ik heb de Obesitas sandwich besteld. Ik ben nu in het ziekenhuis. 10/10 zou het opnieuw doen."</p>
+            <div class="testimonial-author">— Jeltes moeder</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★☆☆</div>
+            <p class="testimonial-text">"De Gayernator heeft mij letterlijk uit de kast gegooid. Niet metaforisch."</p>
+            <div class="testimonial-author">— Anonieme klant, Arnhem</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"De CEO kon zijn naam niet uitspreken bij de levering maar de sandwich was geweldig."</p>
+            <div class="testimonial-author">— Armel K., l4v</div>
+        </div>
+    </div>
+</div>
+
+<!-- ── CART ── -->
+<button class="cart-fab" onclick="toggleCart()" aria-label="Winkelwagen">
     🛒
     <span class="cart-count">0</span>
-</div>
+</button>
 
 <div class="cart-modal">
     <h3>Winkelwagen</h3>
     <div id="cart-items"></div>
     <div class="cart-total">Totaal: €<span id="cart-total">0.00</span></div>
-    <button class="buy-button" onclick="checkout()">Afrekenen</button>
+    <button class="btn-primary" onclick="checkout()">Afrekenen</button>
 </div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-brand">Turkish Sandwich 2.0</div>
+    <p>© 2024 KaasRijkeTurk · Arnhem · Alle rechten voorbehouden</p>
+    <p style="margin-top:8px; font-size:10px;">* Vers betekent: minder dan 3 dagen oud. Waarschijnlijk.</p>
+</footer>
+
+<script>
+    // Counter animatie
+    function animateCounter(id, target, suffix = '', duration = 2000) {
+        const el = document.getElementById(id);
+        let start = 0;
+        const step = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += step;
+            if (start >= target) { start = target; clearInterval(timer); }
+            el.textContent = Math.floor(start) + suffix;
+        }, 16);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter('counter-sandwiches', 33);
+                animateCounter('counter-survivors', 0);
+                animateCounter('counter-countries', 7);
+                animateCounter('counter-stars', 4, '.2');
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('.stats-bar'));
+
+    // Sandwich van de dag
+    const sandwiches = [
+        { name: 'De "100% kans op obesitas"', desc: 'Niemand heeft deze sandwich overleefd.', price: '€29,99' },
+        { name: 'De "Moldy" Sandwich', desc: 'Niet Gezond, Niet Lekker en maakt niet je tanden schoon!', price: '€0,99' },
+        { name: 'De "Tooth Cheese" Sandwich', desc: 'Gezond, Lekker en maakt je tanden schoon!', price: '€3,99' },
+        { name: 'De "Gayernator" Sandwich', desc: 'Deze sandwich zorgt ervoor dat je uit de kast komt.', price: '€6,99' },
+        { name: 'De "Volty" Sandwich', desc: 'Deze sandwich zal je laten schokken!', price: '€6,99' },
+    ];
+
+    const today = new Date().getDay();
+    const sotd = sandwiches[today % sandwiches.length];
+    document.getElementById('sotd-name').textContent = sotd.name;
+    document.getElementById('sotd-desc').textContent = sotd.desc;
+    document.getElementById('sotd-price').textContent = sotd.price;
+
+    // Toast
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+    }
+</script>
+
 </body>
 </html>
